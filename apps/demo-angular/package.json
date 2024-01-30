@@ -2,7 +2,8 @@
   "main": "./src/main.ts",
   "dependencies": {
     "@nativescript/core": "file:../../node_modules/@nativescript/core",
-    "@marblsy/here": "file:../../dist/packages/here"
+    "@marblsy/here": "file:../../dist/packages/here",
+    "@marblsy/spotify": "file:../../dist/packages/spotify"
   },
   "devDependencies": {
     "@nativescript/android": "~8.6.0",

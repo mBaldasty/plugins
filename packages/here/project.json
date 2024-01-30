@@ -1,0 +1,65 @@
+{
+  "name": "here",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/here",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/here",
+        "tsConfig": "packages/here/tsconfig.json",
+        "packageJson": "packages/here/package.json",
+        "main": "packages/here/index.d.ts",
+        "assets": [
+          "packages/here/*.md",
+          "packages/here/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/here/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts here"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/here"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages here"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/here/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

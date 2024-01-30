@@ -24,7 +24,8 @@
       "@@m-baldasty/*": ["packages/*"],
       "@@m-baldasty/here": ["packages/here/index.d.ts"],
       "@marblsy/*": ["packages/*"],
-      "@marblsy/here": ["packages/here/index.d.ts"]
+      "@marblsy/here": ["packages/here/index.d.ts"],
+      "@marblsy/spotify": ["packages/spotify/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,13 @@
+{
+  "main": "./app/app.ts",
+  "description": "NativeScript Application",
+  "dependencies": {
+    "@nativescript/core": "file:../../node_modules/@nativescript/core",
+    "@marblsy/here": "file:../../packages/here",
+    "@marblsy/spotify": "file:../../packages/spotify"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.6.2",
+    "@nativescript/ios": "8.6.3"
+  }
+}

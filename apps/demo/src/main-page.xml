@@ -7,6 +7,7 @@
       <StackLayout>
         <Button text="add a package first" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
 <Button text="here" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="spotify" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
 
       </StackLayout>
     </ScrollView>

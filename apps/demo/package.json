@@ -5,7 +5,8 @@
   "repository": "<fill-your-repository-here>",
   "dependencies": {
     "@nativescript/core": "file:../../node_modules/@nativescript/core",
-    "@marblsy/here": "file:../../packages/here"
+    "@marblsy/here": "file:../../packages/here",
+    "@marblsy/spotify": "file:../../packages/spotify"
   },
   "devDependencies": {
     "@nativescript/android": "~8.6.0",

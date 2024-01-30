@@ -95,6 +95,13 @@ module.exports = {
           description: '@marblsy/here: Build',
         },
       },
+      // @marblsy/spotify
+      spotify: {
+        build: {
+          script: 'nx run spotify:build.all',
+          description: '@marblsy/spotify: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -112,6 +119,10 @@ module.exports = {
       here: {
         script: 'nx run here:focus',
         description: 'Focus on @marblsy/here',
+      },
+      spotify: {
+        script: 'nx run spotify:focus',
+        description: 'Focus on @marblsy/spotify',
       },
       reset: {
         script: 'nx g @@m-baldasty/plugin-tools:focus-packages',
