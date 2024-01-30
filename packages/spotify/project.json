@@ -1,0 +1,65 @@
+{
+  "name": "spotify",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/spotify",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/spotify",
+        "tsConfig": "packages/spotify/tsconfig.json",
+        "packageJson": "packages/spotify/package.json",
+        "main": "packages/spotify/index.d.ts",
+        "assets": [
+          "packages/spotify/*.md",
+          "packages/spotify/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/spotify/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts spotify"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/spotify"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages spotify"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/spotify/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

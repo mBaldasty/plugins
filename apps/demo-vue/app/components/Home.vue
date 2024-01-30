@@ -23,7 +23,9 @@ export default Vue.extend({
     },
   },
   mounted() {
-    console.log(global.NMAMapView)
+    console.log('typeof SPTConfiguration:', typeof SPTConfiguration)
+
+    console.log('typeof SDKOptions:', typeof heresdk)
   }
 });
 </script>

@@ -1,6 +1,6 @@
 import { Observable, Property, View, ContentView } from '@nativescript/core';
 
-export abstract class HereCommon extends View {
+export abstract class HereCommon extends ContentView {
   mapStyle: HereMapStyle;
   latitude: number;
   longitude: number;
