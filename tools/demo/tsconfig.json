@@ -1,9 +1,10 @@
 {
-	"extends": "../../tsconfig.base.json",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@nativescript/*": ["../../packages/*"]
-		}
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@@m-baldasty/*": ["../../packages/*"],
+      "@marblsy/*": ["../../packages/*"]
+    }
   }
 }

@@ -20,7 +20,11 @@
       }
     ],
     "paths": {
-      "@demo/shared": ["tools/demo/index.ts"]
+      "@demo/shared": ["tools/demo/index.ts"],
+      "@@m-baldasty/*": ["packages/*"],
+      "@@m-baldasty/here": ["packages/here/index.d.ts"],
+      "@marblsy/*": ["packages/*"],
+      "@marblsy/here": ["packages/here/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
