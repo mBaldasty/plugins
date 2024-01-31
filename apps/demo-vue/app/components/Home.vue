@@ -1,14 +1,8 @@
 <template>
-  <Page>
-    <ActionBar>
-      <Label text="Home" />
-    </ActionBar>
+  <Page actionBarHidden="true">
 
     <GridLayout>
-      <Label class="info" :text="message" />
-      <ContentView height="200" width="200" backgroundColor="black">
-        <!--<HEREMaps height="200" width="200"  backgroundColor="red"/>-->
-      </ContentView>
+        <HEREMaps backgroundColor="red"/>
     </GridLayout>
   </Page>
 </template>
@@ -25,7 +19,21 @@ export default Vue.extend({
   mounted() {
     console.log('typeof SPTConfiguration:', typeof SPTConfiguration)
 
-    console.log('typeof SDKOptions:', typeof heresdk)
+    console.log('typeof SDKOptions:', typeof MapViewWrapper)
+
+    /*
+    let hereSDKWrapper = HERESDKWrapper.new()
+    hereSDKWrapper.initializeHERESDKAccessKeySecret("B49OatIv47m31Kt_AA3dzQ", "EqRJJRxdkpsxaKFfPIovhch1SRkop1rdgLYdP78MHVz9cmJnIuQreqYHAhqwRkuibcW3FczB_6EbtgxrEVf8Jg")
+    let mapViewWrapper = MapViewWrapper.new()
+    const frame = CGRectMake(0, 0, 300, 300);
+    mapViewWrapper.createMapViewWithFrame(frame)
+    console.log(mapViewWrapper.getMapView().mapScene)
+    */
+
+    // console.log(mapViewWrapper.getMapView())
+
+    // NSCSDKNativeEngine.new().createSDKNativeEngineWithAccessKeyIdAccessKeySecret('t', 't')
+
   }
 });
 </script>

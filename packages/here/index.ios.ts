@@ -7,6 +7,9 @@ import { HereCommon, HereMarker } from './common';
 global.moduleMerge(common, exports);
 
 export class Here extends HereCommon {
+  mapViewWrapper: MapViewWrapper;
+  routingEngine: RoutingWrapper;
+
   constructor() {
     super();
   }
@@ -17,18 +20,31 @@ export class Here extends HereCommon {
   }
   */
   static _init() {
-    console.log('init');
-    console.log(Object.keys(SDKInternalInitializer.new()));
+    let hereSDKWrapper = HERESDKWrapper.new();
+    hereSDKWrapper.initializeHERESDKAccessKeySecret('B49OatIv47m31Kt_AA3dzQ', 'EqRJJRxdkpsxaKFfPIovhch1SRkop1rdgLYdP78MHVz9cmJnIuQreqYHAhqwRkuibcW3FczB_6EbtgxrEVf8Jg');
+  }
+
+  public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number) {
+    const nativeView = this.nativeView;
+    if (nativeView) {
+      const width = layout.getMeasureSpecSize(widthMeasureSpec);
+      const height = layout.getMeasureSpecSize(heightMeasureSpec);
+      this.setMeasuredDimension(width, height);
+    }
   }
 
   createNativeView(): Object {
     console.log('createNativeView');
     Here._init();
-    return {};
+    this.mapViewWrapper = MapViewWrapper.shared;
+    this.mapViewWrapper.createMapViewWithFrame(CGRectZero);
+    return this.mapViewWrapper.getMapView();
   }
 
   initNativeView() {
     console.log('initNativeView');
+    this.mapViewWrapper.moveCamera();
+    this.startRandomRoute();
     super.initNativeView();
   }
 
@@ -54,5 +70,10 @@ export class Here extends HereCommon {
 
   updateMarkers(markers: HereMarker[]): Promise<any> {
     return Promise.resolve(undefined);
+  }
+
+  startRandomRoute() {
+    this.routingEngine = RoutingWrapper.new();
+    console.log(this.routingEngine.addSampleRoute());
   }
 }
